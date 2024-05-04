@@ -12,6 +12,7 @@
     "utility": "cpp",
     "variant": "cpp",
     "ostream": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "numeric": "cpp"
   }
 }
