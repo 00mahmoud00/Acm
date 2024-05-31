@@ -1,0 +1,1 @@
+CodeForces/Perfiquence/input.txt CodeForces/Perfiquence/Solution CodeForces/Perfiquence/Solution.cpp
