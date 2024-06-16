@@ -12,14 +12,28 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 
 void solve()
 {
+    long long n, m;
+    cin >> n >> m;
+    long long ans = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= m; j++)
+        {
+            long long gcd = __gcd(i, j);
+            if ((j * gcd) % (i + j) == 0)
+                ans++, cout << i << "  " << j << endl;
+        }
+    }
+    cout << ans << endl;
+    cout << "==========================\n";
 }
 
 int main()
 {
     readFromFile();
     // FastIO
-    // int t;
-    // cin >> t;
-    // while (t--)
-    solve();
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
 }

@@ -12,14 +12,17 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 
 void solve()
 {
+    int n, m;
+    cin >> n >> m;
+    cout << ((__gcd(n, m)) > 1 ? "YES" : "NO") << endl;
 }
 
 int main()
 {
-    readFromFile();
-    // FastIO
-    // int t;
-    // cin >> t;
-    // while (t--)
-    solve();
+    // readFromFile();
+    FastIO;
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
 }
