@@ -16,7 +16,7 @@ void solve()
 
 int main()
 {
-    readFromFile();
+    // readFromFile();
     // FastIO
     // int t;
     // cin >> t;
