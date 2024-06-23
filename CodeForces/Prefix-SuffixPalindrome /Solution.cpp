@@ -74,7 +74,7 @@ struct Hashing
         return make_pair(pr1, make_pair(pr2, pr3));
     }
 
-    pair<int, pair<int, int>> get_sufix(int l, int r)
+    pair<int, pair<int, int>> get_suffix(int l, int r)
     {
         int sf1 = suf1[l], sf2 = suf2[l], sf3 = suf3[l];
         if (r + 1 < n)
@@ -89,27 +89,27 @@ struct Hashing
     bool isPalindrome(int l, int r)
     {
         pair<int, pair<int, int>> prefix = get_prefix(l, r);
-        pair<int, pair<int, int>> sufix = get_sufix(l, r);
-        return prefix.first == sufix.first &&
-               prefix.second.first == sufix.second.first &&
-               prefix.second.second == sufix.second.second;
+        pair<int, pair<int, int>> suffix = get_suffix(l, r);
+        return prefix.first == suffix.first &&
+               prefix.second.first == suffix.second.first &&
+               prefix.second.second == suffix.second.second;
     }
 
-    int longestPlaindrome()
+    int longestPalindrome()
     {
         int ans = 0;
         for (int i = 0; i < n; i++)
-            ans = max(ans, plainromeOdd(i));
+            ans = max(ans, palindromeOdd(i));
 
         for (int i = 0; i + 1 < n; i++)
         {
             if (str[i] == str[i + 1])
-                ans = max(ans, palinromEven(i));
+                ans = max(ans, palindromeEven(i));
         }
 
         return ans;
     }
-    int plainromeOdd(int x)
+    int palindromeOdd(int x)
     {
         int l = 0, r = min(n - x - 1, x), mid, ans = 0;
         while (l <= r)
@@ -126,7 +126,7 @@ struct Hashing
         return ans * 2 + 1;
     }
 
-    int palinromEven(int x)
+    int palindromeEven(int x)
     {
         int l = 0, r = min(n - x - 2, x), mid, ans = 0;
         while (l <= r)
