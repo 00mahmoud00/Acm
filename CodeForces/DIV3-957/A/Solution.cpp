@@ -12,14 +12,24 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 
 void solve()
 {
-    int x1, y1, x2, y2;
-    cin >> x1 >> y1 >> x2 >> y2;
-    if (x1 < y1 && x2 > y2)
-        cout << "NO\n";
-    else if (x1 > y1 && x2 < y2)
-        cout << "NO\n";
-    else
-        cout << "YES\n";
+    int a, b, c;
+    cin >> a >> b >> c;
+
+    int ans = a * b * c;
+    for (int i = 0; i <= 5; i++)
+    {
+        for (int j = 0; j <= 5; j++)
+        {
+            for (int k = 0; k <= 5; k++)
+            {
+                if (i + j + k == 5)
+                {
+                    ans = max(ans, ((a + i) * (b + j) * (c + k)));
+                }
+            }
+        }
+    }
+    cout << ans << endl;
 }
 
 int main()

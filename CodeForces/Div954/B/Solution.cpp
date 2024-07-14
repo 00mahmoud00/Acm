@@ -12,48 +12,45 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 
 void solve()
 {
-    int n, m;
-    cin >> n >> m;
+    long long x = 16, y = 3, k = 2;
+    cin >> x >> y >> k;
 
-    int arr[n][m];
-    for (int i = 0; i < n; i++)
-        for (int j = 0; j < m; j++)
-            cin >> arr[i][j];
-
-    for (int i = 0; i < n; i++)
+    cout << "x = " << x << ", y = " << y << ", k = " << k << endl;
+    while (x > y && k > 0)
     {
-        for (int j = 0; j < m; j++)
+        int diff = y - (x - (x / y) * y);
+        if (k >= diff)
         {
-            int mx = 0;
-
-            int n1 = i > 0 ? arr[i - 1][j] : 0;
-            int n2 = i < n - 1 ? arr[i + 1][j] : 0;
-            int n3 = j > 0 ? arr[i][j - 1] : 0;
-            int n4 = j < m - 1 ? arr[i][j + 1] : 0;
-
-            mx = max(mx, n1);
-            mx = max(mx, n2);
-            mx = max(mx, n3);
-            mx = max(mx, n4);
-
-            if (
-                n1 < arr[i][j] &&
-                n2 < arr[i][j] &&
-                n3 < arr[i][j] &&
-                n4 < arr[i][j])
-                arr[i][j] = mx;
-            // cout << mx << endl;
+            k -= diff;
+            x += diff;
+            while (x % y == 0)
+                x /= y;
+        }
+        else
+        {
+            x += k;
+            k = 0;
         }
     }
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
-            cout << arr[i][j] << " ";
-        }
-        cout << endl;
-    }
+    cout << x << endl;
+    // while (k > 0)
+    // {
+    //     int diff = y - (x - (x / y) * y);
+    //     if (k >= diff)
+    //     {
+    //         k -= diff;
+    //         x += diff;
+    //         while (x % y == 0)
+    //             x /= y;
+    //     }
+    //     else
+    //     {
+    //         x += k;
+    //         k = 0;
+    //     }
+    // }
+    // cout << x << endl;
 }
 
 int main()

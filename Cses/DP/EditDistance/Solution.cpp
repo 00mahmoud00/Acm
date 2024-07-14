@@ -11,13 +11,34 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 #endif
 }
 
+string s, t;
+vector<vector<int>> dp(5001, vector<int>(5001, -1));
+
+int calc(int i, int j)
+{
+    if (i == s.size())
+        return t.size() - j;
+
+    if (j == t.size())
+        return s.size() - i;
+
+    if (dp[i][j] != -1)
+        return dp[i][j];
+
+    if (s[i] == t[j])
+        return dp[i][j] = calc(i + 1, j + 1);
+
+    return dp[i][j] = 1 + min({calc(i, j + 1), calc(i + 1, j), calc(i + 1, j + 1)});
+}
 void solve()
 {
+    cin >> s >> t;
+    cout << calc(0, 0) << endl;
 }
 
 int main()
 {
-    // readFromFile();
+    readFromFile();
     // FastIO
     // int t;
     // cin >> t;

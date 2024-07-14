@@ -10,19 +10,39 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 #endif
 }
 
-void solve()
+void solve(int s)
 {
-    int n, m;
-    cin >> n >> m;
-    cout << ((__gcd(n, m)) > 1 ? "YES" : "NO") << endl;
+    int n = s;
+    int ans = 0;
+    vector<int> vec(n + 1);
+    for (int i = 1; i < n + 1; i++)
+        vec[i] = i;
+
+    for (auto i : vec)
+        cout << i << " ";
+    cout << endl;
+    do
+    {
+        for (int i = 2; i < n + 1; i++)
+        {
+            for (int j = 1; j < i; j++)
+            {
+                if (vec[i] % vec[j] == 0)
+                    ans++;
+            }
+        }
+    } while (next_permutation(vec.begin() + 1, vec.end()));
+
+    cout << s << "  " << ans << endl;
+    cout << "============\n";
 }
 
 int main()
 {
     // readFromFile();
     FastIO;
-    int t;
-    cin >> t;
-    while (t--)
-        solve();
+    int t = 0;
+    // cin >> t;
+    while (t++ < 20)
+        solve(t);
 }

@@ -12,14 +12,23 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 
 void solve()
 {
-    int x1, y1, x2, y2;
-    cin >> x1 >> y1 >> x2 >> y2;
-    if (x1 < y1 && x2 > y2)
-        cout << "NO\n";
-    else if (x1 > y1 && x2 < y2)
-        cout << "NO\n";
-    else
-        cout << "YES\n";
+    int n, k;
+    cin >> n >> k;
+
+    vector<int> vec(k);
+    for (auto &it : vec)
+        cin >> it;
+
+    sort(vec.begin(), vec.end());
+
+    int ans = 0;
+    for (int i = 0; i < vec.size() - 1; i++)
+    {
+        ans += vec[i];
+        ans += vec[i] - 1;
+    }
+
+    cout << ans << endl;
 }
 
 int main()

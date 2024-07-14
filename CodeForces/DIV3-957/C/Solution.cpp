@@ -12,14 +12,16 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 
 void solve()
 {
-    int x1, y1, x2, y2;
-    cin >> x1 >> y1 >> x2 >> y2;
-    if (x1 < y1 && x2 > y2)
-        cout << "NO\n";
-    else if (x1 > y1 && x2 < y2)
-        cout << "NO\n";
-    else
-        cout << "YES\n";
+    int n, m, k;
+    cin >> n >> m >> k;
+
+    for (int i = n; i >= k; i--)
+        cout << i << " ";
+    for (int i = m + 1; i < k; i++)
+        cout << i << " ";
+    for (int i = 1; i <= m; i++)
+        cout << i << " ";
+    cout << endl;
 }
 
 int main()

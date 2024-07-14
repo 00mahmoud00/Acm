@@ -12,22 +12,27 @@ void readFromFile(string input = "input.txt", string output = "output.txt")
 
 void solve()
 {
-    int x1, y1, x2, y2;
-    cin >> x1 >> y1 >> x2 >> y2;
-    if (x1 < y1 && x2 > y2)
-        cout << "NO\n";
-    else if (x1 > y1 && x2 < y2)
-        cout << "NO\n";
-    else
-        cout << "YES\n";
+    for (int x = 1; x < 10; x++)
+    {
+        for (int y = x; y < 10; y++)
+        {
+            for (int z = y; z < 10; z++)
+            {
+                if (x * y * z == 36)
+                {
+                    cout << x << " " << y << " " << z << " " << x + y + z << endl;
+                }
+            }
+        }
+    }
 }
 
 int main()
 {
     readFromFile();
     // FastIO
-    int t;
-    cin >> t;
-    while (t--)
-        solve();
+    // int t;
+    // cin >> t;
+    // while (t--)
+    solve();
 }
